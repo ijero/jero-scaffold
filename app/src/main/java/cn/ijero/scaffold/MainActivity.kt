@@ -1,16 +1,14 @@
 package cn.ijero.scaffold
 
-import android.os.Bundle
-import android.view.LayoutInflater
 import androidx.activity.viewModels
 import cn.ijero.scaffold.databinding.ActivityMainBinding
 
 class MainActivity : ScaffoldActivity() {
     private val binding by viewBinding<ActivityMainBinding>()
+    private val viewModel by viewModels<MainViewModel>()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+    override fun initView() {
+        binding.textView.text = "JeroScaffold1"
     }
 
 }

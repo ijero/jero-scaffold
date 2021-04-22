@@ -5,9 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 
 abstract class ScaffoldActivity : AppCompatActivity() {
 
-    //<editor-fold desc="成员变量">
-    
-    //</editor-fold>
+    // <editor-fold desc="成员变量">
+
+    // </editor-fold>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
