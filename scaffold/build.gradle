@@ -1,0 +1,51 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdkVersion versions.compileSdkVersion
+    buildToolsVersion versions.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion versions.minSdkVersion
+        targetSdkVersion versions.targetSdkVersion
+        versionCode versions.versionCode
+        versionName versions.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    viewBinding {
+        enabled = true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+}
+
+dependencies {
+    api "androidx.core:core-ktx:${deps.core_ktx}"
+    api "com.dylanc:viewbinding-base-ktx:${deps.viewbinding_ktx}"
+    api "androidx.fragment:fragment-ktx:${deps.fragment_ktx}"
+    api "androidx.activity:activity-ktx:${deps.activity_ktx}"
+    api "androidx.appcompat:appcompat:${deps.appcompat}"
+    api "com.google.android.material:material:${deps.material}"
+    api "androidx.constraintlayout:constraintlayout:${deps.constraintlayout}"
+    api "com.github.CymChad:BaseRecyclerViewAdapterHelper:${deps.brvah}"
+    testImplementation "junit:junit:${deps.junit}"
+    androidTestImplementation "androidx.test.ext:junit:${deps.junit_ext}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${deps.espresso}"
+}
