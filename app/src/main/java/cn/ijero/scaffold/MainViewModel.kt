@@ -12,8 +12,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val _randomInt = MutableLiveData<Int>()
     val randomInt: LiveData<Int> = _randomInt
 
-
-    fun randomInt(){
+    fun randomInt() {
         viewModelScope.launch {
             _randomInt.postValue(Random.nextInt())
         }

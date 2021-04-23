@@ -24,7 +24,7 @@ android {
         }
     }
 
-    viewBinding{
+    viewBinding {
         enabled = true
     }
     compileOptions {
@@ -37,5 +37,15 @@ android {
 }
 
 dependencies {
+    implementation "androidx.core:core-ktx:${deps.core_ktx}"
+    implementation "androidx.fragment:fragment-ktx:${deps.fragment_ktx}"
+    implementation "androidx.activity:activity-ktx:${deps.activity_ktx}"
+    implementation "androidx.appcompat:appcompat:${deps.appcompat}"
+    implementation "com.google.android.material:material:${deps.material}"
+    implementation "androidx.constraintlayout:constraintlayout:${deps.constraintlayout}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    testImplementation "junit:junit:${deps.junit}"
+    androidTestImplementation "androidx.test.ext:junit:${deps.junit_ext}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${deps.espresso}"
     implementation project(path: ':scaffold')
 }

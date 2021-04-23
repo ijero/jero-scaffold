@@ -1,35 +1,46 @@
 package cn.ijero.scaffold
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import com.dylanc.viewbinding.base.inflateBindingWithGeneric
 
-abstract class ScaffoldActivity<VB : ViewBinding> : AppCompatActivity() {
+abstract class ScaffoldFragment<VB : ViewBinding> : Fragment() {
 
     // <editor-fold desc="成员变量">
-    protected open lateinit var binding: VB
+    private var _binding: VB? = null
+    protected open val binding: VB
+        get() = _binding!!
     // </editor-fold>
 
     // <editor-fold desc="内部函数">
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        initViewBefore(savedInstanceState)
-
-        binding = inflateBindingWithGeneric(layoutInflater)
-        setContentView(binding.root)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = inflateBindingWithGeneric(layoutInflater)
+        return binding.root
     }
 
-    override fun onAttachedToWindow() {
-        super.onAttachedToWindow()
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initViewBefore(savedInstanceState)
         initView()
         initViewListener()
         initObserver()
         initData()
     }
     // </editor-fold>
+
 
     // <editor-fold desc="初始化方法">
     /**
@@ -71,5 +82,6 @@ abstract class ScaffoldActivity<VB : ViewBinding> : AppCompatActivity() {
      */
     protected open fun initViewBefore(savedInstanceState: Bundle?) {}
     // </editor-fold>
+
 
 }
