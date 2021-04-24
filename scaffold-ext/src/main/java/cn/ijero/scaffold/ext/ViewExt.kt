@@ -6,52 +6,54 @@ import androidx.transition.Transition
 import androidx.transition.TransitionManager
 
 /**
- * 隐藏View
- * @param isGone true时使用 [View.GONE]方式隐藏，false时使用[View.INVISIBLE]方式隐藏
- * @return
+ * 是否显示View
+ *
  **/
-@JvmOverloads
-fun View.hide(isGone: Boolean = true) {
-    visibility = if (isGone) {
-        View.GONE
-    } else {
-        View.INVISIBLE
+var View.isShow
+    get() = visibility == View.VISIBLE
+    set(value) {
+        visibility = if (value) {
+            View.VISIBLE
+        } else {
+            View.INVISIBLE
+        }
     }
-}
 
 /**
- * 显示View
- * @return
- **/
-fun View.show() {
-    visibility = View.VISIBLE
-}
-
-/**
- * View是否在显示
+ * 是否隐藏View
  *
  **/
-fun View.isShow() = visibility == View.VISIBLE
-
-/**
- * View是否已隐藏
- *
- **/
-fun View.isHide() = visibility != View.VISIBLE
+var View.isGone
+    get() = visibility != View.VISIBLE
+    set(value) {
+        visibility = if (value) {
+            View.VISIBLE
+        } else {
+            View.GONE
+        }
+    }
 
 @JvmOverloads
 fun View.hideWithTransition(isGone: Boolean = true, transition: Transition? = null) {
     TransitionManager.beginDelayedTransition(parent as ViewGroup, transition)
-    hide(isGone)
+    if (isGone) {
+        this.isGone = true
+    } else {
+        this.isShow = false
+    }
 }
 
 @JvmOverloads
 fun View.showWithTransition(transition: Transition? = null) {
     TransitionManager.beginDelayedTransition(parent as ViewGroup, transition)
-    show()
+    isShow = true
 }
 
-fun View.hideAndEndTransition(){
+fun View.hideAndEndTransition(isGone: Boolean = true) {
     TransitionManager.endTransitions(parent as ViewGroup)
-    hide()
+    if (isGone) {
+        this.isGone = true
+    } else {
+        this.isShow = false
+    }
 }
