@@ -1,3 +1,4 @@
+include ':scaffold-ext'
 include ':scaffold'
 include ':app'
 rootProject.name = "jero-scaffold"
