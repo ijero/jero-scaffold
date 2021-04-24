@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'kotlin-android'
 }
 
@@ -8,13 +8,13 @@ android {
     buildToolsVersion versions.buildToolsVersion
 
     defaultConfig {
-        applicationId "cn.ijero.scaffold"
         minSdkVersion versions.minSdkVersion
         targetSdkVersion versions.targetSdkVersion
         versionCode versions.versionCode
         versionName versions.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -22,10 +22,6 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-    }
-
-    viewBinding {
-        enabled = true
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -37,16 +33,10 @@ android {
 }
 
 dependencies {
+    api "androidx.core:core-ktx:${deps.core_ktx}"
+    api "androidx.appcompat:appcompat:${deps.appcompat}"
+    api "com.google.android.material:material:${deps.material}"
     testImplementation "junit:junit:${deps.junit}"
     androidTestImplementation "androidx.test.ext:junit:${deps.junit_ext}"
     androidTestImplementation "androidx.test.espresso:espresso-core:${deps.espresso}"
-    implementation project(path: ':scaffold')
-    implementation project(path: ':scaffold-ext')
-
-    implementation "androidx.core:core-ktx:${deps.core_ktx}"
-    implementation "androidx.fragment:fragment-ktx:${deps.fragment_ktx}"
-    implementation "androidx.activity:activity-ktx:${deps.activity_ktx}"
-    implementation "androidx.appcompat:appcompat:${deps.appcompat}"
-    implementation "com.google.android.material:material:${deps.material}"
-    implementation "androidx.constraintlayout:constraintlayout:${deps.constraintlayout}"
 }
