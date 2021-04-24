@@ -4,7 +4,6 @@ import android.content.ContentResolver
 import android.content.Context
 import android.net.Uri
 
-
 fun Context.resourceToUri(resId: Int): String {
     val r = resources
     val uri = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://"
