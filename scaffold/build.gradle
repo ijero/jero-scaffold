@@ -37,15 +37,16 @@ android {
 }
 
 dependencies {
-    api "androidx.core:core-ktx:${deps.core_ktx}"
-    api "androidx.appcompat:appcompat:${deps.appcompat}"
-    api "com.google.android.material:material:${deps.material}"
+    implementation "androidx.core:core-ktx:${deps.core_ktx}"
+    implementation "androidx.appcompat:appcompat:${deps.appcompat}"
+    implementation "com.google.android.material:material:${deps.material}"
+    api project(path: ':scaffold-ext')
     testImplementation "junit:junit:${deps.junit}"
     androidTestImplementation "androidx.test.ext:junit:${deps.junit_ext}"
     androidTestImplementation "androidx.test.espresso:espresso-core:${deps.espresso}"
-    api "com.dylanc:viewbinding-base-ktx:${deps.viewbinding_ktx}"
-    api "androidx.fragment:fragment-ktx:${deps.fragment_ktx}"
-    api "androidx.activity:activity-ktx:${deps.activity_ktx}"
-    api "androidx.constraintlayout:constraintlayout:${deps.constraintlayout}"
+    implementation "com.dylanc:viewbinding-base-ktx:${deps.viewbinding_ktx}"
+    implementation "androidx.fragment:fragment-ktx:${deps.fragment_ktx}"
+    implementation "androidx.activity:activity-ktx:${deps.activity_ktx}"
+    implementation "androidx.constraintlayout:constraintlayout:${deps.constraintlayout}"
     api "com.github.CymChad:BaseRecyclerViewAdapterHelper:${deps.brvah}"
 }

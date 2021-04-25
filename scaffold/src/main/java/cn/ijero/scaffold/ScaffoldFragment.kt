@@ -44,7 +44,7 @@ abstract class ScaffoldFragment<VB : ViewBinding> : Fragment() {
 
     // <editor-fold desc="初始化方法">
     /**
-     * 初始化View，在[onAttachedToWindow]中调用的第一个方法，建议在此方法中进行初始化View状态，设置默认显示值等
+     * 初始化View，建议在此方法中进行初始化View状态，设置默认显示值等
      *
      * @author WangChun
      */

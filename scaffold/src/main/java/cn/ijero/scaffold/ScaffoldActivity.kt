@@ -1,8 +1,10 @@
 package cn.ijero.scaffold
 
 import android.os.Bundle
+import android.view.MotionEvent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
+import cn.ijero.scaffold.ext.autoHideInput
 import com.dylanc.viewbinding.base.inflateBindingWithGeneric
 
 abstract class ScaffoldActivity<VB : ViewBinding> : AppCompatActivity() {
@@ -12,7 +14,6 @@ abstract class ScaffoldActivity<VB : ViewBinding> : AppCompatActivity() {
     // </editor-fold>
 
     // <editor-fold desc="内部函数">
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initViewBefore(savedInstanceState)
@@ -29,6 +30,11 @@ abstract class ScaffoldActivity<VB : ViewBinding> : AppCompatActivity() {
         initObserver()
         initData()
     }
+
+    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
+        return autoHideInput(ev) || super.dispatchTouchEvent(ev)
+    }
+
     // </editor-fold>
 
     // <editor-fold desc="初始化方法">
