@@ -1,3 +1,4 @@
+include ':scaffold-ui'
 include ':scaffold-ext'
 include ':scaffold'
 include ':app'

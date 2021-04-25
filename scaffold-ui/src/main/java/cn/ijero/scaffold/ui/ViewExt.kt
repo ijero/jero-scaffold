@@ -2,36 +2,10 @@ package cn.ijero.scaffold.ext
 
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.transition.Transition
 import androidx.transition.TransitionManager
-
-/**
- * 是否显示View
- *
- **/
-var View.isShow
-    get() = visibility == View.VISIBLE
-    set(value) {
-        visibility = if (value) {
-            View.VISIBLE
-        } else {
-            View.INVISIBLE
-        }
-    }
-
-/**
- * 是否隐藏View
- *
- **/
-var View.isGone
-    get() = visibility != View.VISIBLE
-    set(value) {
-        visibility = if (value) {
-            View.VISIBLE
-        } else {
-            View.GONE
-        }
-    }
 
 @JvmOverloads
 fun View.hideWithTransition(isGone: Boolean = true, transition: Transition? = null) {
@@ -39,14 +13,14 @@ fun View.hideWithTransition(isGone: Boolean = true, transition: Transition? = nu
     if (isGone) {
         this.isGone = true
     } else {
-        this.isShow = false
+        this.isVisible = true
     }
 }
 
 @JvmOverloads
 fun View.showWithTransition(transition: Transition? = null) {
     TransitionManager.beginDelayedTransition(parent as ViewGroup, transition)
-    isShow = true
+    isVisible = true
 }
 
 fun View.hideAndEndTransition(isGone: Boolean = true) {
@@ -54,6 +28,6 @@ fun View.hideAndEndTransition(isGone: Boolean = true) {
     if (isGone) {
         this.isGone = true
     } else {
-        this.isShow = false
+        this.isVisible = true
     }
 }
