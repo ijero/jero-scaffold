@@ -56,23 +56,3 @@ private fun hideInputMethod(context: Context, v: View?): Boolean {
         .getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     return imm.hideSoftInputFromWindow(v?.windowToken, 0)
 }
-
-/**
- *
- * 显示软键盘
- *
- **/
-fun EditText.showInput() {
-    val imm = getSystemService(context, InputMethodManager::class.java)
-    imm?.showSoftInput(this, 0)
-}
-
-/**
- *
- * 隐藏软键盘
- *
- **/
-fun EditText.hideInput() {
-    val imm = getSystemService(context, InputMethodManager::class.java)
-    imm?.hideSoftInputFromWindow(windowToken, 0)
-}
