@@ -41,7 +41,7 @@ dependencies {
     androidTestImplementation "androidx.test.ext:junit:${deps.junit_ext}"
     androidTestImplementation "androidx.test.espresso:espresso-core:${deps.espresso}"
     implementation project(path: ':scaffold')
-    implementation project(path: ':scaffold-ext')
+    implementation project(path: ':scaffold-basic-ext')
 
     implementation "androidx.core:core-ktx:${deps.core_ktx}"
     implementation "androidx.fragment:fragment-ktx:${deps.fragment_ktx}"

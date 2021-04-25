@@ -40,7 +40,7 @@ dependencies {
     implementation "androidx.core:core-ktx:${deps.core_ktx}"
     implementation "androidx.appcompat:appcompat:${deps.appcompat}"
     implementation "com.google.android.material:material:${deps.material}"
-    api project(path: ':scaffold-ext')
+    api project(path: ':scaffold-basic-ext')
     testImplementation "junit:junit:${deps.junit}"
     androidTestImplementation "androidx.test.ext:junit:${deps.junit_ext}"
     androidTestImplementation "androidx.test.espresso:espresso-core:${deps.espresso}"

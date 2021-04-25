@@ -22,6 +22,6 @@ ext {
             activity_ktx    : '1.2.2',
             viewbinding_ktx : '1.1.2',
             brvah           : '3.0.4',
-            xpopup          : "2.2.20",
+            xpopup          : "2.2.23",
     ]
 }
