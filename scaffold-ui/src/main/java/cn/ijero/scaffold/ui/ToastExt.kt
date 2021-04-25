@@ -1,4 +1,4 @@
-package cn.ijero.scaffold.ext
+package cn.ijero.scaffold.ui
 
 import android.annotation.SuppressLint
 import android.app.Dialog
