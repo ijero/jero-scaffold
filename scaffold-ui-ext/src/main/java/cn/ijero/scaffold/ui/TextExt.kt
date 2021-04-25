@@ -1,9 +1,7 @@
 package cn.ijero.scaffold.ui
 
-import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 
 /**
  * 清空输入框内容
