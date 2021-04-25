@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 
-
 // <editor-fold desc="View扩展">
 fun View.snackbar(
     text: String,
