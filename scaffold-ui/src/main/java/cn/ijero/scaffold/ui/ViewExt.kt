@@ -1,5 +1,6 @@
-package cn.ijero.scaffold.ext
+package cn.ijero.scaffold.ui
 
+import android.os.SystemClock
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isGone
@@ -30,4 +31,20 @@ fun View.hideAndEndTransition(isGone: Boolean = true) {
     } else {
         this.isVisible = true
     }
+}
+
+
+class OnSingleClickListener(private val block: (View) -> Unit) : View.OnClickListener {
+    private var lastClickTime = 0L
+    override fun onClick(v: View) {
+        if (SystemClock.elapsedRealtime() - lastClickTime < 1000) {
+            return
+        }
+        lastClickTime = SystemClock.elapsedRealtime()
+        block(v)
+    }
+}
+
+fun View.setOnSingleClickListener(block: (View) -> Unit) {
+    setOnClickListener(OnSingleClickListener(block))
 }
