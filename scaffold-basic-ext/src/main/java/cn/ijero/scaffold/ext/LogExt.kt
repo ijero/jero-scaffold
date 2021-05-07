@@ -44,6 +44,3 @@ fun <T : Any> T.logw(
 ) {
     Log.w(tag, msg, throwable)
 }
-
-
-
