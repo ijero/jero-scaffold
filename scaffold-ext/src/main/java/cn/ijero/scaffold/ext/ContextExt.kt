@@ -21,5 +21,5 @@ val Context.appVersionCode: Long
     }
 
 val Context.navigationBarHeight: Int
-    get() = NavigationBarUtil.getNavigationBarHeightIfRoom(this)
+    get() = navigationBarHeightIfRoom()
 

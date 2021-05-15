@@ -11,7 +11,6 @@ task androidSourcesJar(type: Jar) {
 }
 
 ext {
-    PUBLISH_GROUP_ID = versions.groupId
     PUBLISH_VERSION = versions.versionName
 }
 
@@ -19,7 +18,13 @@ ext["signing.keyId"] = ''
 ext["signing.password"] = ''
 ext["signing.secretKeyRingFile"] = ''
 ext["ossrhUsername"] = ''
+ext["ossrhEmail"] = ''
 ext["ossrhPassword"] = ''
+ext["publishProjectUrl"] = ''
+ext["publishGitUrl"] = ''
+ext["publishGroupId"] = ''
+ext["publishDesc"] = ''
+ext["publishRemoteBaseUrl"] = ''
 
 File secretPropsFile = project.rootProject.file('local.properties')
 if (secretPropsFile.exists()) {
@@ -37,7 +42,7 @@ publishing {
         release(MavenPublication) {
             // The coordinates of the library, being set from variables that
             // we'll set up in a moment
-            groupId PUBLISH_GROUP_ID
+            groupId publishGroupId
             artifactId PUBLISH_ARTIFACT_ID
             version PUBLISH_VERSION
 
@@ -48,30 +53,29 @@ publishing {
             // Self-explanatory metadata for the most part
             pom {
                 name = PUBLISH_ARTIFACT_ID
-                description = '你的项目描述'
+                description = publishDesc
                 // If your project has a dedicated site, use its URL here
-                url = 'https://github.com/boybeak/EasyPack'
+                url = publishProjectUrl
                 licenses {
                     license {
-                        //协议类型，一般默认Apache License2.0的话不用改：
+                        //协议类型
                         name = 'The Apache License, Version 2.0'
-                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        url = 'https://gitee.com/ijero/jero-scaffold/raw/master/LICENSE'
                     }
                 }
                 developers {
                     developer {
-                        id = '你的sonatype用户名'
-                        name = '你的sonatype用户名'
-                        email = '你的sonatype注册邮箱'
+                        id = ossrhUsername
+                        name = ossrhUsername
+                        email = ossrhEmail
                     }
                 }
                 // Version control info, if you're using GitHub, follow the format as seen here
                 scm {
-                    //修改成你的Git地址：
-                    connection = 'scm:git:github.com/你的github账号/你的项目名称.git'
-                    developerConnection = 'scm:git:ssh://github.com/你的github账号/你的项目名称.git'
+                    connection = "scm:$publishGitUrl"
+                    developerConnection = "scm:$publishGitUrl"
                     //分支地址：
-                    url = 'https://github.com/你的github账号/你的项目名称/tree/master'
+                    url = publishGitUrl
                 }
                 // A slightly hacky fix so that your POM will include any transitive dependencies
                 // that your library builds upon
@@ -95,8 +99,8 @@ publishing {
             // any other name that's descriptive for you
             name = "mavencentral"
 
-            def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
-            def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
+            def releasesRepoUrl = "$publishRemoteBaseUrl/service/local/staging/deploy/maven2/"
+            def snapshotsRepoUrl = "$publishRemoteBaseUrl/content/repositories/snapshots/"
             // You only need this if you want to publish snapshots, otherwise just set the URL
             // to the release repo directly
             url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl

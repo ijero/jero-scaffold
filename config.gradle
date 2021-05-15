@@ -7,7 +7,6 @@ ext {
             buildToolsVersion: "30.0.3",
             minSdkVersion    : 24,
             targetSdkVersion : 30,
-            groupId          : "cn.ijero.scaffold",
             versionCode      : 1,
             versionName      : "0.0.1",
     ]
