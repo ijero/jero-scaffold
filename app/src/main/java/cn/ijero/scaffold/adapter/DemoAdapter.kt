@@ -1,7 +1,7 @@
 package cn.ijero.scaffold.adapter
 
-import cn.ijero.scaffold.ScaffoldAdapter
 import cn.ijero.scaffold.databinding.ItemDemoBinding
+import cn.ijero.scaffold.ui.adapter.ScaffoldAdapter
 
 class DemoAdapter : ScaffoldAdapter<String, ItemDemoBinding>() {
 

@@ -1,4 +1,4 @@
-package cn.ijero.scaffold
+package cn.ijero.scaffold.ui.adapter
 
 import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
