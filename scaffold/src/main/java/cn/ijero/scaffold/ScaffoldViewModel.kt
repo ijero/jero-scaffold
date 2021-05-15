@@ -6,7 +6,6 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import cn.ijero.scaffold.data.Error
-import cn.ijero.scaffold.data.Success
 
 open class ScaffoldViewModel(application: Application) : AndroidViewModel(application) {
     open val context: Context
