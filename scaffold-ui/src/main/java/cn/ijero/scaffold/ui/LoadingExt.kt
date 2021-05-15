@@ -11,7 +11,7 @@ private var mLoadingPopupView: BasePopupView? = null
 // <editor-fold desc="Activity">
 
 fun Context.showLoading(title: CharSequence? = null) {
-    if (mLoadingPopupView != null && mLoadingPopupView!!.dialog.isShowing) {
+    if (mLoadingPopupView != null && mLoadingPopupView!!.isShow) {
         return
     }
     if (mLoadingPopupView == null) {

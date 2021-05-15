@@ -6,8 +6,8 @@ import cn.ijero.scaffold.ui.adapter.ScaffoldAdapter
 class DemoAdapter : ScaffoldAdapter<String, ItemDemoBinding>() {
 
     override fun convert(holder: BaseBindingHolder<ItemDemoBinding>, item: String) {
-        holder.viewBinding().apply {
-
+        holder.binding.apply {
+            textView.text = "%s".format(item)
         }
     }
 

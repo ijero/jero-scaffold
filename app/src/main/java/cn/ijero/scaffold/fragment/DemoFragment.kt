@@ -27,7 +27,7 @@ class DemoFragment : ScaffoldFragment<FragmentDemoBinding>() {
     }
 
     override fun initViewListener() {
-        binding.button.setOnClickListener {
+        binding.serveButton.setOnClickListener {
             viewModel.randomFood()
         }
     }
