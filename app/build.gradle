@@ -45,6 +45,10 @@ dependencies {
     implementation project(path: ':scaffold-ext')
     implementation project(path: ':scaffold-ui')
 
+//    implementation "com.gitee.ijero:scaffold-core:0.0.1"
+//    implementation "com.gitee.ijero:scaffold-ext:0.0.1"
+//    implementation "com.gitee.ijero:scaffold-ui:0.0.1"
+
     implementation "androidx.core:core-ktx:${deps.core_ktx}"
     implementation "androidx.fragment:fragment-ktx:${deps.fragment_ktx}"
     implementation "androidx.activity:activity-ktx:${deps.activity_ktx}"
