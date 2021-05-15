@@ -24,4 +24,10 @@ class FragmentDemoActivity : ScaffoldActivity<ActivityFragmentDemoBinding>() {
             .commit()
     }
 
+    override fun initViewListener() {
+        binding.toolbar.setNavigationOnClickListener {
+            finish()
+        }
+    }
+
 }

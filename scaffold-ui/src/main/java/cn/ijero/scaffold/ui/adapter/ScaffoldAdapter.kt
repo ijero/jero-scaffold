@@ -13,10 +13,6 @@ abstract class ScaffoldAdapter<T, VB : ViewBinding>(layoutResId: Int = -1) :
         BaseBindingHolder<VB>(inflateBindingWithGeneric<VB>(parent))
 
     class BaseBindingHolder<VB : ViewBinding>(
-        private val binding: ViewBinding
-    ) : BaseViewHolder(binding.root) {
-        @Suppress("UNCHECKED_CAST")
-        fun viewBinding() = binding as VB
-    }
-
+        val binding: VB
+    ) : BaseViewHolder(binding.root)
 }

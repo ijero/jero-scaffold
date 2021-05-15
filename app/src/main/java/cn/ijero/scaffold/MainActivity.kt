@@ -2,6 +2,7 @@ package cn.ijero.scaffold
 
 import android.view.View
 import androidx.activity.viewModels
+import cn.ijero.scaffold.adapter.DemoAdapterActivity
 import cn.ijero.scaffold.databinding.ActivityMainBinding
 import cn.ijero.scaffold.fragment.FragmentDemoActivity
 
@@ -25,6 +26,10 @@ class MainActivity : ScaffoldActivity<ActivityMainBinding>() {
 
     fun toFragment(view: View) {
         FragmentDemoActivity.start(this)
+    }
+
+    fun toAdapter(view: View) {
+        DemoAdapterActivity.start(this)
     }
 
 }

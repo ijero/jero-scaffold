@@ -24,7 +24,7 @@ android {
         }
     }
 
-    buildFeatures{
+    buildFeatures {
         viewBinding true
     }
 
@@ -37,17 +37,23 @@ android {
     }
 }
 
+def useRemote = false
+
 dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     testImplementation "junit:junit:${deps.junit}"
     androidTestImplementation "androidx.test.ext:junit:${deps.junit_ext}"
     androidTestImplementation "androidx.test.espresso:espresso-core:${deps.espresso}"
-//    implementation project(path: ':scaffold-core')
-//    implementation project(path: ':scaffold-ext')
-//    implementation project(path: ':scaffold-ui')
 
-    implementation "com.gitee.ijero:scaffold-core:0.0.1"
-    implementation "com.gitee.ijero:scaffold-ext:0.0.1"
-    implementation "com.gitee.ijero:scaffold-ui:0.0.1"
+    if (useRemote) {
+        implementation "com.gitee.ijero:scaffold-core:0.0.1"
+        implementation "com.gitee.ijero:scaffold-ext:0.0.1"
+        implementation "com.gitee.ijero:scaffold-ui:0.0.1"
+    } else {
+        implementation project(path: ':scaffold-core')
+        implementation project(path: ':scaffold-ext')
+        implementation project(path: ':scaffold-ui')
+    }
 
     implementation "androidx.core:core-ktx:${deps.core_ktx}"
     implementation "androidx.fragment:fragment-ktx:${deps.fragment_ktx}"
