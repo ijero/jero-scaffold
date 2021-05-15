@@ -4,13 +4,20 @@ import android.os.Bundle
 import android.view.MotionEvent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
-import cn.ijero.scaffold.ext.autoHideInput
+import cn.ijero.scaffold.util.autoHideInput
 import com.dylanc.viewbinding.base.inflateBindingWithGeneric
 
 abstract class ScaffoldActivity<VB : ViewBinding> : AppCompatActivity() {
 
     // <editor-fold desc="成员变量">
     protected open lateinit var binding: VB
+
+    /**
+     *
+     * 是否启用自动隐藏软键盘功能
+     *
+     **/
+    protected open var isAutoHideInput = true
     // </editor-fold>
 
     // <editor-fold desc="内部函数">
@@ -32,7 +39,7 @@ abstract class ScaffoldActivity<VB : ViewBinding> : AppCompatActivity() {
     }
 
     override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
-        return autoHideInput(ev) || super.dispatchTouchEvent(ev)
+        return (isAutoHideInput && autoHideInput(ev)) || super.dispatchTouchEvent(ev)
     }
 
     // </editor-fold>

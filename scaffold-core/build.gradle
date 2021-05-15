@@ -10,8 +10,6 @@ android {
     defaultConfig {
         minSdkVersion versions.minSdkVersion
         targetSdkVersion versions.targetSdkVersion
-        versionCode versions.versionCode
-        versionName versions.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -23,13 +21,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    buildFeatures {
+        viewBinding true
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
 }
 
 dependencies {
@@ -39,4 +44,16 @@ dependencies {
     testImplementation "junit:junit:${deps.junit}"
     androidTestImplementation "androidx.test.ext:junit:${deps.junit_ext}"
     androidTestImplementation "androidx.test.espresso:espresso-core:${deps.espresso}"
+    implementation "androidx.fragment:fragment-ktx:${deps.fragment_ktx}"
+    implementation "androidx.activity:activity-ktx:${deps.activity_ktx}"
+    implementation "androidx.constraintlayout:constraintlayout:${deps.constraintlayout}"
+
+    api "com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-base:${deps.viewbinding_ktx}"
 }
+
+
+ext {
+    PUBLISH_ARTIFACT_ID = "scaffold-core"
+}
+
+apply from: '../publish.gradle'

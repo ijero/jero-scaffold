@@ -12,8 +12,12 @@ import android.os.Looper
  * @return
  **/
 @JvmOverloads
-fun Any.post(delayMillis: Long = 0, looper: Looper = Looper.getMainLooper(), runnable: () -> Unit) {
-    Handler(looper).postDelayed(runnable, delayMillis)
+fun Any.post(
+    delayMillis: Long = 0,
+    looper: Looper = Looper.getMainLooper(),
+    runnable: () -> Unit
+) {
+    handler(looper).postDelayed(runnable, delayMillis)
 }
 
 /**
@@ -22,18 +26,27 @@ fun Any.post(delayMillis: Long = 0, looper: Looper = Looper.getMainLooper(), run
  * @return
  **/
 @JvmOverloads
-fun Any.postDelay(delayMillis: Long = 1000, looper: Looper = Looper.getMainLooper(), runnable: () -> Unit) {
-    Handler(looper).postDelayed(runnable, delayMillis)
+fun Any.postDelay(
+    delayMillis: Long = 1000,
+    looper: Looper = Looper.getMainLooper(),
+    runnable: () -> Unit
+) {
+    handler(looper).postDelayed(runnable, delayMillis)
 }
 
 @JvmOverloads
 fun Any.post(delayMillis: Long = 0, looper: Looper = Looper.getMainLooper(), runnable: Runnable) {
-    Handler(looper).postDelayed(runnable, delayMillis)
+    handler(looper).postDelayed(runnable, delayMillis)
 }
-
 
 @JvmOverloads
-fun Any.postDelay(delayMillis: Long = 1000, looper: Looper = Looper.getMainLooper(), runnable: Runnable) {
-    Handler(looper).postDelayed(runnable, delayMillis)
+fun Any.postDelay(
+    delayMillis: Long = 1000,
+    looper: Looper = Looper.getMainLooper(),
+    runnable: Runnable
+) {
+    handler(looper).postDelayed(runnable, delayMillis)
 }
+
+private fun handler(looper: Looper) = Handler(looper)
 

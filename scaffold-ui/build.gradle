@@ -10,8 +10,6 @@ android {
     defaultConfig {
         minSdkVersion versions.minSdkVersion
         targetSdkVersion versions.targetSdkVersion
-        versionCode versions.versionCode
-        versionName versions.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -46,3 +44,9 @@ dependencies {
     api "com.github.CymChad:BaseRecyclerViewAdapterHelper:${deps.brvah}"
     api "com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-base:${deps.viewbinding_ktx}"
 }
+
+ext {
+    PUBLISH_ARTIFACT_ID = "scaffold-ui"
+}
+
+apply from: '../publish.gradle'
