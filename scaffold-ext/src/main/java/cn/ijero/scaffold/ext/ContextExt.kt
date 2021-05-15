@@ -3,7 +3,6 @@ package cn.ijero.scaffold.ext
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Build
-import cn.ijero.scaffold.util.NavigationBarUtil
 
 val Context.defPref: SharedPreferences
     get() = getSharedPreferences("app_shared_prefs", Context.MODE_PRIVATE)

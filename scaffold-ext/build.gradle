@@ -10,8 +10,6 @@ android {
     defaultConfig {
         minSdkVersion versions.minSdkVersion
         targetSdkVersion versions.targetSdkVersion
-        versionCode versions.versionCode
-        versionName versions.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -23,9 +21,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    viewBinding {
-        enabled = true
-    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -33,19 +28,20 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-
 }
 
 dependencies {
     implementation "androidx.core:core-ktx:${deps.core_ktx}"
     implementation "androidx.appcompat:appcompat:${deps.appcompat}"
     implementation "com.google.android.material:material:${deps.material}"
-    api project(path: ':scaffold-basic-ext')
     testImplementation "junit:junit:${deps.junit}"
     androidTestImplementation "androidx.test.ext:junit:${deps.junit_ext}"
     androidTestImplementation "androidx.test.espresso:espresso-core:${deps.espresso}"
-    implementation "com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-base:${deps.viewbinding_ktx}"
-    implementation "androidx.fragment:fragment-ktx:${deps.fragment_ktx}"
-    implementation "androidx.activity:activity-ktx:${deps.activity_ktx}"
-    implementation "androidx.constraintlayout:constraintlayout:${deps.constraintlayout}"
 }
+
+
+ext {
+    PUBLISH_ARTIFACT_ID = "scaffold-ext"
+}
+
+apply from: '../publish.gradle'

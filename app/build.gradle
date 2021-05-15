@@ -24,9 +24,10 @@ android {
         }
     }
 
-    viewBinding {
-        enabled = true
+    buildFeatures{
+        viewBinding true
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -40,8 +41,8 @@ dependencies {
     testImplementation "junit:junit:${deps.junit}"
     androidTestImplementation "androidx.test.ext:junit:${deps.junit_ext}"
     androidTestImplementation "androidx.test.espresso:espresso-core:${deps.espresso}"
-    implementation project(path: ':scaffold')
-    implementation project(path: ':scaffold-basic-ext')
+    implementation project(path: ':scaffold-core')
+    implementation project(path: ':scaffold-ext')
     implementation project(path: ':scaffold-ui')
 
     implementation "androidx.core:core-ktx:${deps.core_ktx}"
