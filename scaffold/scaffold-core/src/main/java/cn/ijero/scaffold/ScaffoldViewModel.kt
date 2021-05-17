@@ -20,11 +20,11 @@ open class ScaffoldViewModel(application: Application) : AndroidViewModel(applic
      *
      **/
     open fun postError(
-        throwable: Throwable,
+        error: Throwable? = null,
         msg: String? = null,
         errorCode: Int = Error.DEF_ERROR_CODE
     ) {
-        postError(Error(throwable, msg, errorCode))
+        postError(Error(error, msg, errorCode))
     }
 
     /**
