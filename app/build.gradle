@@ -37,7 +37,7 @@ android {
     }
 }
 
-def useRemote = true
+def useRemote = false
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
@@ -46,9 +46,9 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:${deps.espresso}"
 
     if (useRemote) {
-        implementation "com.gitee.ijero:scaffold-core:0.0.2"
-        implementation "com.gitee.ijero:scaffold-ext:0.0.2"
-        implementation "com.gitee.ijero:scaffold-ui:0.0.2"
+        implementation "com.gitee.ijero:scaffold-core:0.0.3-alpha"
+        implementation "com.gitee.ijero:scaffold-ext:0.0.3-alpha"
+        implementation "com.gitee.ijero:scaffold-ui:0.0.3-alpha"
     } else {
         implementation project(path: ':scaffold-core')
         implementation project(path: ':scaffold-ext')
