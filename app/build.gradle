@@ -50,9 +50,9 @@ dependencies {
         implementation "com.gitee.ijero:scaffold-ext:0.0.3-alpha"
         implementation "com.gitee.ijero:scaffold-ui:0.0.3-alpha"
     } else {
-        implementation project(path: ':scaffold-core')
-        implementation project(path: ':scaffold-ext')
-        implementation project(path: ':scaffold-ui')
+        implementation project(path: ':scaffold:scaffold-core')
+        implementation project(path: ':scaffold:scaffold-ext')
+        implementation project(path: ':scaffold:scaffold-ui')
     }
 
     implementation "androidx.core:core-ktx:${deps.core_ktx}"

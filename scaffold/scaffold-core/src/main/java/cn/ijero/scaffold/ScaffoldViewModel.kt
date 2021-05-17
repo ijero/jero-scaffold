@@ -14,8 +14,26 @@ open class ScaffoldViewModel(application: Application) : AndroidViewModel(applic
     private val _error = MutableLiveData<Error>()
     val error: LiveData<Error> = _error
 
-    protected open fun postError(throwable: Throwable, msg: String? = null) {
-        _error.postValue(Error(throwable, msg))
+    /**
+     *
+     * 向 error liveData发送一个错误信息
+     *
+     **/
+    open fun postError(
+        throwable: Throwable,
+        msg: String? = null,
+        errorCode: Int = Error.DEF_ERROR_CODE
+    ) {
+        postError(Error(throwable, msg, errorCode))
+    }
+
+    /**
+     *
+     * 向 error liveData发送一个错误信息
+     *
+     **/
+    open fun postError(error: Error) {
+        _error.postValue(error)
     }
 
 }

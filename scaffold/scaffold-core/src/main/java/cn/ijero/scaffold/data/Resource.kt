@@ -10,5 +10,9 @@ data class Success<T>(
 data class Error(
     val error: Throwable?,
     override val msg: String? = null,
-    val errorCode: Int = 1000,
-) : Resource(msg)
+    val errorCode: Int = DEF_ERROR_CODE,
+) : Resource(msg){
+    companion object{
+        const val DEF_ERROR_CODE = 1000
+    }
+}
