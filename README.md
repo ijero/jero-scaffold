@@ -1,4 +1,4 @@
-[![Release](https://img.shields.io/badge/JeroScaffold-0.0.5-blue)](https://gitee.com/ijero/jero-scaffold/releases/0.0.5)
+[![Release](https://img.shields.io/badge/JeroScaffold-0.0.6-blue)](https://gitee.com/ijero/jero-scaffold/releases/0.0.6)
 
 # JeroScaffold
 
@@ -19,6 +19,8 @@ allprojects {
     repositories {
         // ...
         mavenCentral()
+        // scaffold-ui需要添加jitpack.io
+        maven { url 'https://jitpack.io' }
         maven {
             url 'https://repo1.maven.org/maven2/'
         }
@@ -29,11 +31,11 @@ allprojects {
 ```groovy
 dependencies {
     // 基础脚手架
-    implementation "com.gitee.ijero:scaffold-core:0.0.5" 
+    implementation "com.gitee.ijero:scaffold-core:0.0.6" 
     // 常用的扩展库
-    implementation "com.gitee.ijero:scaffold-ext:0.0.5" 
+    implementation "com.gitee.ijero:scaffold-ext:0.0.6" 
     // ui相关的的扩展库
-    implementation "com.gitee.ijero:scaffold-ui:0.0.5" 
+    implementation "com.gitee.ijero:scaffold-ui:0.0.6" 
 }
 ```
 

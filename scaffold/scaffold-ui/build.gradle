@@ -40,7 +40,7 @@ dependencies {
 
     // XPopup
     api "com.github.li-xiaojun:XPopup:${deps.xpopup}"
-    api "com.github.li-xiaojun:EasyAdapter:1.2.4"
+    api "com.github.li-xiaojun:EasyAdapter:${deps.easy_adapter}"
     api "com.github.CymChad:BaseRecyclerViewAdapterHelper:${deps.brvah}"
     api "com.github.DylanCaiCoding.ViewBindingKTX:viewbinding-base:${deps.viewbinding_ktx}"
 }
