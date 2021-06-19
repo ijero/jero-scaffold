@@ -11,7 +11,7 @@ private var mLoadingPopupView: BasePopupView? = null
 // <editor-fold desc="Activity">
 
 fun Context.showLoading(title: CharSequence? = null) {
-    if (mLoadingPopupView != null && mLoadingPopupView!!.isShow) {
+    if (mLoadingPopupView != null && !mLoadingPopupView!!.isDismiss) {
         return
     }
     if (mLoadingPopupView == null) {
@@ -25,9 +25,6 @@ fun Context.showLoading(@StringRes title: Int) {
     showLoading(getString(title))
 }
 
-fun Context.hideLoading() {
-    mLoadingPopupView?.dismiss()
-}
 // </editor-fold>
 
 // <editor-fold desc="Fragment">
@@ -40,7 +37,8 @@ fun Fragment.showLoading(@StringRes title: Int) {
     context?.showLoading(getString(title))
 }
 
-fun Fragment.hideLoading() {
-    context?.hideLoading()
-}
 // </editor-fold>
+fun hideLoading() {
+    mLoadingPopupView?.dismiss()
+    mLoadingPopupView = null
+}

@@ -1,4 +1,4 @@
-[![Release](https://img.shields.io/badge/JeroScaffold-0.0.4-blue)](https://gitee.com/ijero/jero-scaffold/releases/0.0.4)
+[![Release](https://img.shields.io/badge/JeroScaffold-0.0.5-blue)](https://gitee.com/ijero/jero-scaffold/releases/0.0.5)
 
 # JeroScaffold
 
@@ -25,12 +25,15 @@ allprojects {
     }
 }
 ```
-- 2. 在主module的build.gradle中添加需要用到的依赖，
+- 2. 在主module的build.gradle中添加需要用到的依赖（按需添加），
 ```groovy
 dependencies {
-    implementation "com.gitee.ijero:scaffold-core:0.0.4" // 基础脚手架
-    implementation "com.gitee.ijero:scaffold-ext:0.0.4" // 常用的扩展库
-    implementation "com.gitee.ijero:scaffold-ui:0.0.4" // ui相关的的扩展库
+    // 基础脚手架
+    implementation "com.gitee.ijero:scaffold-core:0.0.5" 
+    // 常用的扩展库
+    implementation "com.gitee.ijero:scaffold-ext:0.0.5" 
+    // ui相关的的扩展库
+    implementation "com.gitee.ijero:scaffold-ui:0.0.5" 
 }
 ```
 
