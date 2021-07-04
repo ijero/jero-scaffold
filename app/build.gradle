@@ -46,12 +46,10 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:${deps.espresso}"
 
     if (useRemote) {
-        implementation "com.gitee.ijero:scaffold-core:0.0.3-alpha"
-        implementation "com.gitee.ijero:scaffold-ext:0.0.3-alpha"
-        implementation "com.gitee.ijero:scaffold-ui:0.0.3-alpha"
+        implementation "com.gitee.ijero:scaffold-core:0.0.7"
+        implementation "com.gitee.ijero:scaffold-ui:0.0.7"
     } else {
         implementation project(path: ':scaffold:scaffold-core')
-        implementation project(path: ':scaffold:scaffold-ext')
         implementation project(path: ':scaffold:scaffold-ui')
     }
 

@@ -82,6 +82,4 @@ abstract class ScaffoldFragment<VB : ViewBinding> : Fragment() {
      */
     protected open fun initViewBefore(savedInstanceState: Bundle?) {}
     // </editor-fold>
-
-
 }

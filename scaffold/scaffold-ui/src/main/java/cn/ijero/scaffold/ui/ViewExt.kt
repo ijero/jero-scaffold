@@ -9,8 +9,12 @@ import androidx.transition.Transition
 import androidx.transition.TransitionManager
 
 @JvmOverloads
-fun View.hideWithTransition(isGone: Boolean = true, transition: Transition? = null) {
-    TransitionManager.beginDelayedTransition(parent as ViewGroup, transition)
+fun View.hideWithTransition(
+    isGone: Boolean = true,
+    transition: Transition? = null,
+    parent: ViewGroup = this.parent as ViewGroup
+) {
+    TransitionManager.beginDelayedTransition(parent, transition)
     if (isGone) {
         this.isGone = true
     } else {
@@ -19,20 +23,25 @@ fun View.hideWithTransition(isGone: Boolean = true, transition: Transition? = nu
 }
 
 @JvmOverloads
-fun View.showWithTransition(transition: Transition? = null) {
-    TransitionManager.beginDelayedTransition(parent as ViewGroup, transition)
+fun View.showWithTransition(
+    transition: Transition? = null,
+    parent: ViewGroup = this.parent as ViewGroup
+) {
+    TransitionManager.beginDelayedTransition(parent, transition)
     isVisible = true
 }
 
-fun View.hideAndEndTransition(isGone: Boolean = true) {
-    TransitionManager.endTransitions(parent as ViewGroup)
+fun View.hideAndEndTransition(
+    isGone: Boolean = true,
+    parent: ViewGroup = this.parent as ViewGroup
+) {
+    TransitionManager.endTransitions(parent)
     if (isGone) {
         this.isGone = true
     } else {
         this.isVisible = true
     }
 }
-
 
 class OnSingleClickListener(private val block: (View) -> Unit) : View.OnClickListener {
     private var lastClickTime = 0L

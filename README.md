@@ -1,4 +1,4 @@
-[![Release](https://img.shields.io/badge/JeroScaffold-0.0.6-blue)](https://gitee.com/ijero/jero-scaffold/releases/0.0.6)
+[![Release](https://img.shields.io/badge/JeroScaffold-0.0.7-blue)](https://gitee.com/ijero/jero-scaffold/releases/0.0.7)
 
 # JeroScaffold
 
@@ -7,8 +7,9 @@ JeroScaffold是一套基于kotlin+viewBinding+viewModel的Android快速开发模
 
 #### 软件架构
 
-- scaffold-core：快速开发的基础脚手架，由ScaffoldActivity、ScaffoldFragment、ScaffoldViewModel组成
-- scaffold-ext：一些常用的扩展库
+> 注意：从0.0.7版本起，scaffold-ext 已合并至 scaffold-core
+
+- scaffold-core：快速开发的基础脚手架，由ScaffoldActivity、ScaffoldFragment、ScaffoldViewModel以及一些常用的扩展库组成
 - scaffold-ui：一些ui相关的的扩展库
 
 #### 安装教程
@@ -19,7 +20,7 @@ allprojects {
     repositories {
         // ...
         mavenCentral()
-        // scaffold-ui需要添加jitpack.io
+        // scaffold-ui模块需要添加jitpack.io
         maven { url 'https://jitpack.io' }
         maven {
             url 'https://repo1.maven.org/maven2/'
@@ -27,15 +28,24 @@ allprojects {
     }
 }
 ```
-- 2. 在主module的build.gradle中添加需要用到的依赖（按需添加），
+- 2. 在主module的build.gradle中添加需要用到的依赖模块（按需添加）
 ```groovy
 dependencies {
     // 基础脚手架
-    implementation "com.gitee.ijero:scaffold-core:0.0.6" 
-    // 常用的扩展库
-    implementation "com.gitee.ijero:scaffold-ext:0.0.6" 
+    implementation "com.gitee.ijero:scaffold-core:0.0.7" 
     // ui相关的的扩展库
-    implementation "com.gitee.ijero:scaffold-ui:0.0.6" 
+    implementation "com.gitee.ijero:scaffold-ui:0.0.7" 
+}
+```
+- 3. 在主module的build.gradle中添加ViewBinding支持
+```groovy
+
+android {
+	// ...
+    buildFeatures {
+        viewBinding true
+    }
+	// ...
 }
 ```
 
@@ -50,3 +60,9 @@ dependencies {
 2.  新建 Feat_xxx 分支
 3.  提交代码
 4.  新建 Pull Request
+
+#### 特别鸣谢
+
+- [ViewBindingKTX](https://github.com/DylanCaiCoding/ViewBindingKTX)
+- [XPopup](https://github.com/li-xiaojun/XPopup)
+- [BRVAH](https://github.com/CymChad/BaseRecyclerViewAdapterHelper)

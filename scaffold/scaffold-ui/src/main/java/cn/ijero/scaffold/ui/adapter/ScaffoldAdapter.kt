@@ -10,7 +10,7 @@ abstract class ScaffoldAdapter<T, VB : ViewBinding>(layoutResId: Int = -1) :
     BaseQuickAdapter<T, ScaffoldAdapter.BaseBindingHolder<VB>>(layoutResId) {
 
     override fun onCreateDefViewHolder(parent: ViewGroup, viewType: Int) =
-        BaseBindingHolder<VB>(inflateBindingWithGeneric<VB>(parent))
+        BaseBindingHolder(inflateBindingWithGeneric<VB>(parent))
 
     class BaseBindingHolder<VB : ViewBinding>(
         val binding: VB

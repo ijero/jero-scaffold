@@ -6,8 +6,8 @@ inline val <T : Any>  T.TAG: String
     get() = this.javaClass.simpleName
 
 fun <T : Any> T.loge(
-    msg: String? = null,
     throwable: Throwable? = null,
+    msg: String? = null,
     tag: String? = TAG
 ) {
     Log.e(tag, msg, throwable)

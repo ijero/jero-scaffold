@@ -1,5 +1,4 @@
 include ':scaffold:scaffold-ui'
-include ':scaffold:scaffold-ext'
 include ':scaffold:scaffold-core'
 include ':app'
 rootProject.name = "jero-scaffold"
